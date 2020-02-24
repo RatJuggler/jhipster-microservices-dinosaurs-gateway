@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "Diet": {
+      "null": "",
+      "HERBIVORE": "HERBIVORE",
+      "CARNIVORE": "CARNIVORE",
+      "OMNIVORE": "OMNIVORE"
+    }
+  }
+}

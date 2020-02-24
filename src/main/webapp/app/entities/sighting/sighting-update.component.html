@@ -1,0 +1,162 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sighting-heading" jhiTranslate="gatewayApp.sighting.home.createOrEditLabel">Create or edit a Sighting</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.dinosaur" for="field_dinosaur">Dinosaur</label>
+                    <input type="number" class="form-control" name="dinosaur" id="field_dinosaur"
+                           formControlName="dinosaur"/>
+                    <div *ngIf="editForm.get('dinosaur')!.invalid && (editForm.get('dinosaur')!.dirty || editForm.get('dinosaur')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dinosaur')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dinosaur')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dinosaur')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.byUser" for="field_byUser">By User</label>
+                    <input type="number" class="form-control" name="byUser" id="field_byUser"
+                           formControlName="byUser"/>
+                    <div *ngIf="editForm.get('byUser')!.invalid && (editForm.get('byUser')!.dirty || editForm.get('byUser')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('byUser')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('byUser')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('byUser')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.whenDt" for="field_whenDt">When Dt</label>
+                    <div class="d-flex">
+                        <input id="field_whenDt" type="datetime-local" class="form-control" name="whenDt" formControlName="whenDt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('whenDt')!.invalid && (editForm.get('whenDt')!.dirty || editForm.get('whenDt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('whenDt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('whenDt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.lat" for="field_lat">Lat</label>
+                    <input type="number" class="form-control" name="lat" id="field_lat"
+                           formControlName="lat"/>
+                    <div *ngIf="editForm.get('lat')!.invalid && (editForm.get('lat')!.dirty || editForm.get('lat')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lat')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lat')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.lng" for="field_lng">Lng</label>
+                    <input type="number" class="form-control" name="lng" id="field_lng"
+                           formControlName="lng"/>
+                    <div *ngIf="editForm.get('lng')!.invalid && (editForm.get('lng')!.dirty || editForm.get('lng')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('lng')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('lng')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.number" for="field_number">Number</label>
+                    <input type="number" class="form-control" name="number" id="field_number"
+                           formControlName="number"/>
+                    <div *ngIf="editForm.get('number')!.invalid && (editForm.get('number')!.dirty || editForm.get('number')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('number')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('number')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('number')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.heading" for="field_heading">Heading</label>
+                    <select class="form-control" name="heading" formControlName="heading" id="field_heading">
+                        <option value="STATIONARY">{{ 'gatewayApp.Heading.STATIONARY' | translate }}</option>
+                        <option value="NORTH">{{ 'gatewayApp.Heading.NORTH' | translate }}</option>
+                        <option value="NORTHEAST">{{ 'gatewayApp.Heading.NORTHEAST' | translate }}</option>
+                        <option value="EAST">{{ 'gatewayApp.Heading.EAST' | translate }}</option>
+                        <option value="SOUTHEAST">{{ 'gatewayApp.Heading.SOUTHEAST' | translate }}</option>
+                        <option value="SOUTH">{{ 'gatewayApp.Heading.SOUTH' | translate }}</option>
+                        <option value="SOUTHWEST">{{ 'gatewayApp.Heading.SOUTHWEST' | translate }}</option>
+                        <option value="WEST">{{ 'gatewayApp.Heading.WEST' | translate }}</option>
+                        <option value="NORTHWEST">{{ 'gatewayApp.Heading.NORTHWEST' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.sighting.notes" for="field_notes">Notes</label>
+                    <input type="text" class="form-control" name="notes" id="field_notes"
+                           formControlName="notes"/>
+                    <div *ngIf="editForm.get('notes')!.invalid && (editForm.get('notes')!.dirty || editForm.get('notes')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('notes')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

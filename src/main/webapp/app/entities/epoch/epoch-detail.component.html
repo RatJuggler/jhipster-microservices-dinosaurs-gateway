@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="epoch">
+            <h2><span jhiTranslate="gatewayApp.epoch.detail.title">Epoch</span> {{ epoch.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.epoch.period">Period</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Period.' + epoch.period }}">{{ epoch.period }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.epoch.epoch">Epoch</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.EpochRange.' + epoch.epoch }}">{{ epoch.epoch }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.epoch.fromMa">From Ma</span></dt>
+                <dd>
+                    <span>{{ epoch.fromMa }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.epoch.toMa">To Ma</span></dt>
+                <dd>
+                    <span>{{ epoch.toMa }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/epoch', epoch.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

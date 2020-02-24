@@ -1,0 +1,26 @@
+{
+  "gatewayApp": {
+    "player": {
+      "home": {
+        "title": "Players",
+        "createLabel": "Créer un nouveau Player",
+        "createOrEditLabel": "Créer ou éditer un Player",
+        "search": "Recherche pour Player",
+        "notFound": "Aucun Player trouvé"
+      },
+      "created": "Un nouveau Player a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Player avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Player avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Player {{ id }} ?"
+      },
+      "detail": {
+        "title": "Player"
+      },
+      "email": "Email",
+      "name": "Name",
+      "avatar": "Avatar",
+      "createdDt": "Created Dt"
+    }
+  }
+}

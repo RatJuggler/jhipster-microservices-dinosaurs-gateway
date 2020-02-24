@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "Period": {
+      "null": "",
+      "TRIASSIC": "TRIASSIC",
+      "JURASSIC": "JURASSIC",
+      "CRETACEOUS": "CRETACEOUS"
+    }
+  }
+}

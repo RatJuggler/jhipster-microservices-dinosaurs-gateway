@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "clade": {
+      "home": {
+        "title": "Clades",
+        "createLabel": "Créer un nouveau Clade",
+        "createOrEditLabel": "Créer ou éditer un Clade",
+        "search": "Recherche pour Clade",
+        "notFound": "Aucun Clade trouvé"
+      },
+      "created": "Un nouveau Clade a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Clade avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Clade avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Clade {{ id }} ?"
+      },
+      "detail": {
+        "title": "Clade"
+      },
+      "name": "Name",
+      "pronunciation": "Pronunciation",
+      "meaning": "Meaning",
+      "description": "Description",
+      "dinosaur": "Dinosaur"
+    }
+  }
+}

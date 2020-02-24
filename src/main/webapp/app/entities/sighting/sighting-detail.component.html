@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sighting">
+            <h2><span jhiTranslate="gatewayApp.sighting.detail.title">Sighting</span> {{ sighting.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.sighting.dinosaur">Dinosaur</span></dt>
+                <dd>
+                    <span>{{ sighting.dinosaur }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.byUser">By User</span></dt>
+                <dd>
+                    <span>{{ sighting.byUser }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.whenDt">When Dt</span></dt>
+                <dd>
+                    <span>{{ sighting.whenDt }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.lat">Lat</span></dt>
+                <dd>
+                    <span>{{ sighting.lat }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.lng">Lng</span></dt>
+                <dd>
+                    <span>{{ sighting.lng }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.number">Number</span></dt>
+                <dd>
+                    <span>{{ sighting.number }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.heading">Heading</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Heading.' + sighting.heading }}">{{ sighting.heading }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.sighting.notes">Notes</span></dt>
+                <dd>
+                    <span>{{ sighting.notes }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sighting', sighting.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

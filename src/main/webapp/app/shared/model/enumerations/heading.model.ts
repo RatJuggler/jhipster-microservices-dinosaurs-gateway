@@ -1,0 +1,11 @@
+export const enum Heading {
+  STATIONARY,
+  NORTH,
+  NORTHEAST,
+  EAST,
+  SOUTHEAST,
+  SOUTH,
+  SOUTHWEST,
+  WEST,
+  NORTHWEST
+}

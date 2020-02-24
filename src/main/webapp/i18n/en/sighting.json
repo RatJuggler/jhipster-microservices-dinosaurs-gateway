@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "sighting": {
+      "home": {
+        "title": "Sightings",
+        "createLabel": "Create a new Sighting",
+        "createOrEditLabel": "Create or edit a Sighting",
+        "search": "Search for Sighting",
+        "notFound": "No Sightings found"
+      },
+      "created": "A new Sighting is created with identifier {{ param }}",
+      "updated": "A Sighting is updated with identifier {{ param }}",
+      "deleted": "A Sighting is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sighting {{ id }}?"
+      },
+      "detail": {
+        "title": "Sighting"
+      },
+      "dinosaur": "Dinosaur",
+      "byUser": "By User",
+      "whenDt": "When Dt",
+      "lat": "Lat",
+      "lng": "Lng",
+      "number": "Number",
+      "heading": "Heading",
+      "notes": "Notes"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "gatewayApp": {
+    "highScore": {
+      "home": {
+        "title": "HighScores",
+        "createLabel": "Créer un nouveau High Score",
+        "createOrEditLabel": "Créer ou éditer un High Score",
+        "search": "Recherche pour High Score",
+        "notFound": "Aucun High Score trouvé"
+      },
+      "created": "Un nouveau High Score a été créé avec l'identifiant {{ param }}",
+      "updated": "Le High Score avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le High Score avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le High Score {{ id }} ?"
+      },
+      "detail": {
+        "title": "High Score"
+      },
+      "score": "Score",
+      "achievedDt": "Achieved Dt",
+      "player": "Player",
+      "level": "Level"
+    }
+  }
+}

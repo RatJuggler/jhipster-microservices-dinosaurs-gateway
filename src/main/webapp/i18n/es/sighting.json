@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "sighting": {
+      "home": {
+        "title": "Sightings",
+        "createLabel": "Crear nuevo Sighting",
+        "createOrEditLabel": "Crear o editar Sighting",
+        "search": "Buscar Sighting",
+        "notFound": "Ningún Sightings encontrado"
+      },
+      "created": "Un nuevo Sighting ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sighting ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sighting ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sighting {{ id }}?"
+      },
+      "detail": {
+        "title": "Sighting"
+      },
+      "dinosaur": "Dinosaur",
+      "byUser": "By User",
+      "whenDt": "When Dt",
+      "lat": "Lat",
+      "lng": "Lng",
+      "number": "Number",
+      "heading": "Heading",
+      "notes": "Notes"
+    }
+  }
+}

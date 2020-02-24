@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "dinosaur": {
+      "home": {
+        "title": "Dinosaurs",
+        "createLabel": "Crear nuevo Dinosaur",
+        "createOrEditLabel": "Crear o editar Dinosaur",
+        "search": "Buscar Dinosaur",
+        "notFound": "Ningún Dinosaurs encontrado"
+      },
+      "created": "Un nuevo Dinosaur ha sido creado con el identificador {{ param }}",
+      "updated": "Un Dinosaur ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Dinosaur ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Dinosaur {{ id }}?"
+      },
+      "detail": {
+        "title": "Dinosaur"
+      },
+      "name": "Name",
+      "pronunciation": "Pronunciation",
+      "meaning": "Meaning",
+      "weight": "Weight",
+      "length": "Length",
+      "height": "Height",
+      "diet": "Diet",
+      "createdBy": "Created By",
+      "createdDt": "Created Dt",
+      "modifiedBy": "Modified By",
+      "modifiedDt": "Modified Dt",
+      "epochItLived": "Epoch It Lived",
+      "clade": "Clade"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "gatewayApp": {
+    "highScore": {
+      "home": {
+        "title": "High Scores",
+        "createLabel": "Create a new High Score",
+        "createOrEditLabel": "Create or edit a High Score",
+        "search": "Search for High Score",
+        "notFound": "No High Scores found"
+      },
+      "created": "A new High Score is created with identifier {{ param }}",
+      "updated": "A High Score is updated with identifier {{ param }}",
+      "deleted": "A High Score is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete High Score {{ id }}?"
+      },
+      "detail": {
+        "title": "High Score"
+      },
+      "score": "Score",
+      "achievedDt": "Achieved Dt",
+      "player": "Player",
+      "level": "Level"
+    }
+  }
+}

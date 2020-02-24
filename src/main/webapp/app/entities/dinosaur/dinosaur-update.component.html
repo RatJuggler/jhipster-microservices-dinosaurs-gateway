@@ -1,0 +1,223 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-dinosaur-heading" jhiTranslate="gatewayApp.dinosaur.home.createOrEditLabel">Create or edit a Dinosaur</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.pronunciation" for="field_pronunciation">Pronunciation</label>
+                    <input type="text" class="form-control" name="pronunciation" id="field_pronunciation"
+                           formControlName="pronunciation"/>
+                    <div *ngIf="editForm.get('pronunciation')!.invalid && (editForm.get('pronunciation')!.dirty || editForm.get('pronunciation')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('pronunciation')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.meaning" for="field_meaning">Meaning</label>
+                    <input type="text" class="form-control" name="meaning" id="field_meaning"
+                           formControlName="meaning"/>
+                    <div *ngIf="editForm.get('meaning')!.invalid && (editForm.get('meaning')!.dirty || editForm.get('meaning')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('meaning')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 64 }">
+                        This field cannot be longer than 64 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                    <div *ngIf="editForm.get('weight')!.invalid && (editForm.get('weight')!.dirty || editForm.get('weight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('weight')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('weight')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('weight')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.length" for="field_length">Length</label>
+                    <input type="number" class="form-control" name="length" id="field_length"
+                           formControlName="length"/>
+                    <div *ngIf="editForm.get('length')!.invalid && (editForm.get('length')!.dirty || editForm.get('length')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('length')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('length')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('length')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.height" for="field_height">Height</label>
+                    <input type="number" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                    <div *ngIf="editForm.get('height')!.invalid && (editForm.get('height')!.dirty || editForm.get('height')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('height')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('height')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('height')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.diet" for="field_diet">Diet</label>
+                    <select class="form-control" name="diet" formControlName="diet" id="field_diet">
+                        <option value="HERBIVORE">{{ 'gatewayApp.Diet.HERBIVORE' | translate }}</option>
+                        <option value="CARNIVORE">{{ 'gatewayApp.Diet.CARNIVORE' | translate }}</option>
+                        <option value="OMNIVORE">{{ 'gatewayApp.Diet.OMNIVORE' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.createdBy" for="field_createdBy">Created By</label>
+                    <input type="number" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                    <div *ngIf="editForm.get('createdBy')!.invalid && (editForm.get('createdBy')!.dirty || editForm.get('createdBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdBy')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdBy')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.createdDt" for="field_createdDt">Created Dt</label>
+                    <div class="d-flex">
+                        <input id="field_createdDt" type="datetime-local" class="form-control" name="createdDt" formControlName="createdDt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDt')!.invalid && (editForm.get('createdDt')!.dirty || editForm.get('createdDt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.modifiedBy" for="field_modifiedBy">Modified By</label>
+                    <input type="number" class="form-control" name="modifiedBy" id="field_modifiedBy"
+                           formControlName="modifiedBy"/>
+                    <div *ngIf="editForm.get('modifiedBy')!.invalid && (editForm.get('modifiedBy')!.dirty || editForm.get('modifiedBy')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('modifiedBy')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('modifiedBy')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.modifiedDt" for="field_modifiedDt">Modified Dt</label>
+                    <div class="d-flex">
+                        <input id="field_modifiedDt" type="datetime-local" class="form-control" name="modifiedDt" formControlName="modifiedDt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.epochItLived" for="field_epochItLived">Epoch It Lived</label>
+                    <select class="form-control" id="field_epochItLived" name="epochItLived" formControlName="epochItLivedId">
+                        <option *ngIf="!editForm.get('epochItLivedId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="epochOption.id" *ngFor="let epochOption of epoches; trackBy: trackById">{{ epochOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('epochItLivedId')!.invalid && (editForm.get('epochItLivedId')!.dirty || editForm.get('epochItLivedId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('epochItLivedId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.dinosaur.clade" for="field_clade">Clade</label>
+                    <select class="form-control" id="field_clade" name="clade" formControlName="cladeId">
+                        <option *ngIf="!editForm.get('cladeId')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="cladeOption.id" *ngFor="let cladeOption of clades; trackBy: trackById">{{ cladeOption.name }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('cladeId')!.invalid && (editForm.get('cladeId')!.dirty || editForm.get('cladeId')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('cladeId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

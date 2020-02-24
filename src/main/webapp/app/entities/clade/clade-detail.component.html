@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="clade">
+            <h2><span jhiTranslate="gatewayApp.clade.detail.title">Clade</span> {{ clade.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.clade.name">Name</span></dt>
+                <dd>
+                    <span>{{ clade.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.clade.pronunciation">Pronunciation</span></dt>
+                <dd>
+                    <span>{{ clade.pronunciation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.clade.meaning">Meaning</span></dt>
+                <dd>
+                    <span>{{ clade.meaning }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.clade.description">Description</span></dt>
+                <dd>
+                    <span>{{ clade.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/clade', clade.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "EpochRange": {
+      "null": "",
+      "EARLY_LOWER": "EARLY_LOWER",
+      "MIDDLE": "MIDDLE",
+      "LATE_UPPER": "LATE_UPPER"
+    }
+  }
+}

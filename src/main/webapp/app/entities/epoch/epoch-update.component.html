@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-epoch-heading" jhiTranslate="gatewayApp.epoch.home.createOrEditLabel">Create or edit a Epoch</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.epoch.period" for="field_period">Period</label>
+                    <select class="form-control" name="period" formControlName="period" id="field_period">
+                        <option value="TRIASSIC">{{ 'gatewayApp.Period.TRIASSIC' | translate }}</option>
+                        <option value="JURASSIC">{{ 'gatewayApp.Period.JURASSIC' | translate }}</option>
+                        <option value="CRETACEOUS">{{ 'gatewayApp.Period.CRETACEOUS' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('period')!.invalid && (editForm.get('period')!.dirty || editForm.get('period')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('period')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.epoch.epoch" for="field_epoch">Epoch</label>
+                    <select class="form-control" name="epoch" formControlName="epoch" id="field_epoch">
+                        <option value="EARLY_LOWER">{{ 'gatewayApp.EpochRange.EARLY_LOWER' | translate }}</option>
+                        <option value="MIDDLE">{{ 'gatewayApp.EpochRange.MIDDLE' | translate }}</option>
+                        <option value="LATE_UPPER">{{ 'gatewayApp.EpochRange.LATE_UPPER' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('epoch')!.invalid && (editForm.get('epoch')!.dirty || editForm.get('epoch')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('epoch')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.epoch.fromMa" for="field_fromMa">From Ma</label>
+                    <input type="number" class="form-control" name="fromMa" id="field_fromMa"
+                           formControlName="fromMa"/>
+                    <div *ngIf="editForm.get('fromMa')!.invalid && (editForm.get('fromMa')!.dirty || editForm.get('fromMa')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fromMa')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fromMa')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fromMa')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('fromMa')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.epoch.toMa" for="field_toMa">To Ma</label>
+                    <input type="number" class="form-control" name="toMa" id="field_toMa"
+                           formControlName="toMa"/>
+                    <div *ngIf="editForm.get('toMa')!.invalid && (editForm.get('toMa')!.dirty || editForm.get('toMa')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('toMa')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('toMa')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('toMa')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 999 }">
+                            This field cannot be more than 999.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('toMa')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "epoch": {
+      "home": {
+        "title": "Epoches",
+        "createLabel": "Crear nuevo Epoch",
+        "createOrEditLabel": "Crear o editar Epoch",
+        "search": "Buscar Epoch",
+        "notFound": "Ningún Epoches encontrado"
+      },
+      "created": "Un nuevo Epoch ha sido creado con el identificador {{ param }}",
+      "updated": "Un Epoch ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Epoch ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Epoch {{ id }}?"
+      },
+      "detail": {
+        "title": "Epoch"
+      },
+      "period": "Period",
+      "epoch": "Epoch",
+      "fromMa": "From Ma",
+      "toMa": "To Ma",
+      "dinosaur": "Dinosaur"
+    }
+  }
+}
