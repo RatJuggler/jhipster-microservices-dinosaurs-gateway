@@ -6,7 +6,7 @@ import { IPlayer } from 'app/shared/model/player.model';
 import { PlayerService } from './player.service';
 
 @Component({
-  templateUrl: './player-delete-dialog.component.html'
+  templateUrl: './player-delete-dialog.component.html',
 })
 export class PlayerDeleteDialogComponent {
   player?: IPlayer;

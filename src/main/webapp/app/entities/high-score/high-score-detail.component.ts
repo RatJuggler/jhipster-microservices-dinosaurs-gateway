@@ -5,7 +5,7 @@ import { IHighScore } from 'app/shared/model/high-score.model';
 
 @Component({
   selector: 'jhi-high-score-detail',
-  templateUrl: './high-score-detail.component.html'
+  templateUrl: './high-score-detail.component.html',
 })
 export class HighScoreDetailComponent implements OnInit {
   highScore: IHighScore | null = null;

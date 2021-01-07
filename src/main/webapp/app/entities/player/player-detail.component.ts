@@ -6,7 +6,7 @@ import { IPlayer } from 'app/shared/model/player.model';
 
 @Component({
   selector: 'jhi-player-detail',
-  templateUrl: './player-detail.component.html'
+  templateUrl: './player-detail.component.html',
 })
 export class PlayerDetailComponent implements OnInit {
   player: IPlayer | null = null;
@@ -21,7 +21,7 @@ export class PlayerDetailComponent implements OnInit {
     return this.dataUtils.byteSize(base64String);
   }
 
-  openFile(contentType: string, base64String: string): void {
+  openFile(contentType = '', base64String: string): void {
     this.dataUtils.openFile(contentType, base64String);
   }
 

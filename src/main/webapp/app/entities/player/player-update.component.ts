@@ -14,7 +14,7 @@ import { AlertError } from 'app/shared/alert/alert-error.model';
 
 @Component({
   selector: 'jhi-player-update',
-  templateUrl: './player-update.component.html'
+  templateUrl: './player-update.component.html',
 })
 export class PlayerUpdateComponent implements OnInit {
   isSaving = false;
@@ -23,12 +23,12 @@ export class PlayerUpdateComponent implements OnInit {
     id: [],
     email: [
       null,
-      [Validators.required, Validators.minLength(5), Validators.maxLength(64), Validators.pattern('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')]
+      [Validators.required, Validators.minLength(5), Validators.maxLength(64), Validators.pattern('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')],
     ],
     name: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(64)]],
     avatar: [],
     avatarContentType: [],
-    createdDt: [null, [Validators.required]]
+    createdDt: [null, [Validators.required]],
   });
 
   constructor(
@@ -58,7 +58,7 @@ export class PlayerUpdateComponent implements OnInit {
       name: player.name,
       avatar: player.avatar,
       avatarContentType: player.avatarContentType,
-      createdDt: player.createdDt ? player.createdDt.format(DATE_TIME_FORMAT) : null
+      createdDt: player.createdDt ? player.createdDt.format(DATE_TIME_FORMAT) : null,
     });
   }
 
@@ -70,7 +70,7 @@ export class PlayerUpdateComponent implements OnInit {
     this.dataUtils.openFile(contentType, base64String);
   }
 
-  setFileData(event: Event, field: string, isImage: boolean): void {
+  setFileData(event: any, field: string, isImage: boolean): void {
     this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
       this.eventManager.broadcast(
         new JhiEventWithContent<AlertError>('gatewayApp.error', { ...err, key: 'error.file.' + err.key })
@@ -81,7 +81,7 @@ export class PlayerUpdateComponent implements OnInit {
   clearInputImage(field: string, fieldContentType: string, idInput: string): void {
     this.editForm.patchValue({
       [field]: null,
-      [fieldContentType]: null
+      [fieldContentType]: null,
     });
     if (this.elementRef && idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
       this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
@@ -110,7 +110,7 @@ export class PlayerUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       avatarContentType: this.editForm.get(['avatarContentType'])!.value,
       avatar: this.editForm.get(['avatar'])!.value,
-      createdDt: this.editForm.get(['createdDt'])!.value ? moment(this.editForm.get(['createdDt'])!.value, DATE_TIME_FORMAT) : undefined
+      createdDt: this.editForm.get(['createdDt'])!.value ? moment(this.editForm.get(['createdDt'])!.value, DATE_TIME_FORMAT) : undefined,
     };
   }
 

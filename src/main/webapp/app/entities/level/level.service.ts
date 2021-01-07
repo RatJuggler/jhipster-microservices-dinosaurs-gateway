@@ -58,7 +58,7 @@ export class LevelService {
 
   protected convertDateFromClient(level: ILevel): ILevel {
     const copy: ILevel = Object.assign({}, level, {
-      createdDt: level.createdDt && level.createdDt.isValid() ? level.createdDt.toJSON() : undefined
+      createdDt: level.createdDt && level.createdDt.isValid() ? level.createdDt.toJSON() : undefined,
     });
     return copy;
   }

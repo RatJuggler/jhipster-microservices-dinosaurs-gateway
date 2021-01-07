@@ -11,6 +11,6 @@ import { cladeRoute } from './clade.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(cladeRoute)],
   declarations: [CladeComponent, CladeDetailComponent, CladeUpdateComponent, CladeDeleteDialogComponent],
-  entryComponents: [CladeDeleteDialogComponent]
+  entryComponents: [CladeDeleteDialogComponent],
 })
 export class GatewayCladeModule {}

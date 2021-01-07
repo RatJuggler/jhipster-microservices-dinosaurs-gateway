@@ -44,7 +44,7 @@ describe('Level e2e test', () => {
       levelUpdatePage.setNameInput('name'),
       levelUpdatePage.setOrderInput('5'),
       levelUpdatePage.setDefinitionInput('definition'),
-      levelUpdatePage.setCreatedDtInput('01/01/2001' + protractor.Key.TAB + '02:30AM')
+      levelUpdatePage.setCreatedDtInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
     ]);
 
     expect(await levelUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');

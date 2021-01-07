@@ -11,6 +11,6 @@ import { sightingRoute } from './sighting.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(sightingRoute)],
   declarations: [SightingComponent, SightingDetailComponent, SightingUpdateComponent, SightingDeleteDialogComponent],
-  entryComponents: [SightingDeleteDialogComponent]
+  entryComponents: [SightingDeleteDialogComponent],
 })
 export class GatewaySightingModule {}

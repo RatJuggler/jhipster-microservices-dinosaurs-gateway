@@ -11,7 +11,7 @@ import { LevelDeleteDialogComponent } from './level-delete-dialog.component';
 
 @Component({
   selector: 'jhi-level',
-  templateUrl: './level.component.html'
+  templateUrl: './level.component.html',
 })
 export class LevelComponent implements OnInit, OnDestroy {
   levels?: ILevel[];
@@ -35,7 +35,7 @@ export class LevelComponent implements OnInit, OnDestroy {
     if (this.currentSearch) {
       this.levelService
         .search({
-          query: this.currentSearch
+          query: this.currentSearch,
         })
         .subscribe((res: HttpResponse<ILevel[]>) => (this.levels = res.body || []));
       return;
@@ -69,7 +69,7 @@ export class LevelComponent implements OnInit, OnDestroy {
     return this.dataUtils.byteSize(base64String);
   }
 
-  openFile(contentType: string, base64String: string): void {
+  openFile(contentType = '', base64String: string): void {
     return this.dataUtils.openFile(contentType, base64String);
   }
 

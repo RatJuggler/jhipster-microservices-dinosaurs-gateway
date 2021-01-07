@@ -4,7 +4,7 @@ import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 import {
   DinosaurComponentsPage,
   /* DinosaurDeleteDialog, */
-  DinosaurUpdatePage
+  DinosaurUpdatePage,
 } from './dinosaur.page-object';
 
 const expect = chai.expect;

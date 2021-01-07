@@ -36,7 +36,7 @@
         <span jhiTranslate="gatewayApp.player.home.notFound">No players found</span>
     </div>
 
-    <div class="table-responsive" id="entities" *ngIf="players?.length > 0">
+    <div class="table-responsive" id="entities" *ngIf="players && players.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
                 <tr>

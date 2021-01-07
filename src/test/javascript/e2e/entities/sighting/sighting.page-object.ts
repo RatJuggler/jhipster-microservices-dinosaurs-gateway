@@ -99,10 +99,7 @@ export class SightingUpdatePage {
   }
 
   async headingSelectLastOption(): Promise<void> {
-    await this.headingSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.headingSelect.all(by.tagName('option')).last().click();
   }
 
   async setNotesInput(notes: string): Promise<void> {

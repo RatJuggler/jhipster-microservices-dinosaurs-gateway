@@ -5,7 +5,7 @@ import { ISighting } from 'app/shared/model/sighting.model';
 
 @Component({
   selector: 'jhi-sighting-detail',
-  templateUrl: './sighting-detail.component.html'
+  templateUrl: './sighting-detail.component.html',
 })
 export class SightingDetailComponent implements OnInit {
   sighting: ISighting | null = null;

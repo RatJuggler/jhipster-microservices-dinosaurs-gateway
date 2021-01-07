@@ -6,7 +6,7 @@ import { ILevel } from 'app/shared/model/level.model';
 
 @Component({
   selector: 'jhi-level-detail',
-  templateUrl: './level-detail.component.html'
+  templateUrl: './level-detail.component.html',
 })
 export class LevelDetailComponent implements OnInit {
   level: ILevel | null = null;
@@ -21,7 +21,7 @@ export class LevelDetailComponent implements OnInit {
     return this.dataUtils.byteSize(base64String);
   }
 
-  openFile(contentType: string, base64String: string): void {
+  openFile(contentType = '', base64String: string): void {
     this.dataUtils.openFile(contentType, base64String);
   }
 

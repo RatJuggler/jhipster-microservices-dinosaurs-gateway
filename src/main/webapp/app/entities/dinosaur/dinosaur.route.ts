@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router';
-import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
+import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IDinosaur, Dinosaur } from 'app/shared/model/dinosaur.model';
 import { DinosaurService } from './dinosaur.service';
@@ -38,50 +38,47 @@ export const dinosaurRoute: Routes = [
   {
     path: '',
     component: DinosaurComponent,
-    resolve: {
-      pagingParams: JhiResolvePagingParams
-    },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'gatewayApp.dinosaur.home.title'
+      pageTitle: 'gatewayApp.dinosaur.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: DinosaurDetailComponent,
     resolve: {
-      dinosaur: DinosaurResolve
+      dinosaur: DinosaurResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.dinosaur.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.dinosaur.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: DinosaurUpdateComponent,
     resolve: {
-      dinosaur: DinosaurResolve
+      dinosaur: DinosaurResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.dinosaur.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.dinosaur.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: DinosaurUpdateComponent,
     resolve: {
-      dinosaur: DinosaurResolve
+      dinosaur: DinosaurResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.dinosaur.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.dinosaur.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

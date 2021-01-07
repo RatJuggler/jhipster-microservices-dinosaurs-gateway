@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [LevelDeleteDialogComponent]
+        declarations: [LevelDeleteDialogComponent],
       })
         .overrideTemplate(LevelDeleteDialogComponent, '')
         .compileComponents();

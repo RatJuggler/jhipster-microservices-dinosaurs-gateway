@@ -6,7 +6,7 @@ import { ISighting } from 'app/shared/model/sighting.model';
 import { SightingService } from './sighting.service';
 
 @Component({
-  templateUrl: './sighting-delete-dialog.component.html'
+  templateUrl: './sighting-delete-dialog.component.html',
 })
 export class SightingDeleteDialogComponent {
   sighting?: ISighting;

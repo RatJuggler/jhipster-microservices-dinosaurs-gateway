@@ -4,6 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
+import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { ISighting, Sighting } from 'app/shared/model/sighting.model';
 import { SightingService } from './sighting.service';
@@ -38,45 +39,45 @@ export const sightingRoute: Routes = [
     path: '',
     component: SightingComponent,
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.sighting.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.sighting.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: SightingDetailComponent,
     resolve: {
-      sighting: SightingResolve
+      sighting: SightingResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.sighting.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.sighting.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: SightingUpdateComponent,
     resolve: {
-      sighting: SightingResolve
+      sighting: SightingResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.sighting.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.sighting.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: SightingUpdateComponent,
     resolve: {
-      sighting: SightingResolve
+      sighting: SightingResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.sighting.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.sighting.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

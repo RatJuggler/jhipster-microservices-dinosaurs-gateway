@@ -6,7 +6,7 @@ import { IHighScore } from 'app/shared/model/high-score.model';
 import { HighScoreService } from './high-score.service';
 
 @Component({
-  templateUrl: './high-score-delete-dialog.component.html'
+  templateUrl: './high-score-delete-dialog.component.html',
 })
 export class HighScoreDeleteDialogComponent {
   highScore?: IHighScore;

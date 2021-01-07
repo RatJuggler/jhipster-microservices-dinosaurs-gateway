@@ -44,7 +44,7 @@ describe('Clade e2e test', () => {
       cladeUpdatePage.setNameInput('name'),
       cladeUpdatePage.setPronunciationInput('pronunciation'),
       cladeUpdatePage.setMeaningInput('meaning'),
-      cladeUpdatePage.setDescriptionInput('description')
+      cladeUpdatePage.setDescriptionInput('description'),
     ]);
 
     expect(await cladeUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');

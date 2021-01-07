@@ -58,7 +58,7 @@ export class SightingService {
 
   protected convertDateFromClient(sighting: ISighting): ISighting {
     const copy: ISighting = Object.assign({}, sighting, {
-      whenDt: sighting.whenDt && sighting.whenDt.isValid() ? sighting.whenDt.toJSON() : undefined
+      whenDt: sighting.whenDt && sighting.whenDt.isValid() ? sighting.whenDt.toJSON() : undefined,
     });
     return copy;
   }

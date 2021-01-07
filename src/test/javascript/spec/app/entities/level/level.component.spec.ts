@@ -16,7 +16,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [LevelComponent]
+        declarations: [LevelComponent],
       })
         .overrideTemplate(LevelComponent, '')
         .compileComponents();
@@ -33,7 +33,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new Level(123)],
-            headers
+            headers,
           })
         )
       );

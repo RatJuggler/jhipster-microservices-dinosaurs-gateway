@@ -4,30 +4,27 @@ import com.rj.dinosaurs.gateway.GatewayApp;
 import com.rj.dinosaurs.gateway.domain.Sighting;
 import com.rj.dinosaurs.gateway.repository.SightingRepository;
 import com.rj.dinosaurs.gateway.repository.search.SightingSearchRepository;
-import com.rj.dinosaurs.gateway.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.Validator;
-
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.List;
 
-import static com.rj.dinosaurs.gateway.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 import static org.hamcrest.Matchers.hasItem;
@@ -40,6 +37,9 @@ import com.rj.dinosaurs.gateway.domain.enumeration.Heading;
  * Integration tests for the {@link SightingResource} REST controller.
  */
 @SpringBootTest(classes = GatewayApp.class)
+@ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
+@WithMockUser
 public class SightingResourceIT {
 
     private static final Long DEFAULT_DINOSAUR = 0L;
@@ -78,35 +78,12 @@ public class SightingResourceIT {
     private SightingSearchRepository mockSightingSearchRepository;
 
     @Autowired
-    private MappingJackson2HttpMessageConverter jacksonMessageConverter;
-
-    @Autowired
-    private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
-
-    @Autowired
-    private ExceptionTranslator exceptionTranslator;
-
-    @Autowired
     private EntityManager em;
 
     @Autowired
-    private Validator validator;
-
     private MockMvc restSightingMockMvc;
 
     private Sighting sighting;
-
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        final SightingResource sightingResource = new SightingResource(sightingRepository, mockSightingSearchRepository);
-        this.restSightingMockMvc = MockMvcBuilders.standaloneSetup(sightingResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
-            .setMessageConverters(jacksonMessageConverter)
-            .setValidator(validator).build();
-    }
 
     /**
      * Create an entity for this test.
@@ -154,10 +131,9 @@ public class SightingResourceIT {
     @Transactional
     public void createSighting() throws Exception {
         int databaseSizeBeforeCreate = sightingRepository.findAll().size();
-
         // Create the Sighting
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isCreated());
 
@@ -188,7 +164,7 @@ public class SightingResourceIT {
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -210,8 +186,9 @@ public class SightingResourceIT {
 
         // Create the Sighting, which fails.
 
+
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -228,8 +205,9 @@ public class SightingResourceIT {
 
         // Create the Sighting, which fails.
 
+
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -246,8 +224,9 @@ public class SightingResourceIT {
 
         // Create the Sighting, which fails.
 
+
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -264,8 +243,9 @@ public class SightingResourceIT {
 
         // Create the Sighting, which fails.
 
+
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -282,8 +262,9 @@ public class SightingResourceIT {
 
         // Create the Sighting, which fails.
 
+
         restSightingMockMvc.perform(post("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -332,7 +313,6 @@ public class SightingResourceIT {
             .andExpect(jsonPath("$.heading").value(DEFAULT_HEADING.toString()))
             .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES));
     }
-
     @Test
     @Transactional
     public void getNonExistingSighting() throws Exception {
@@ -364,7 +344,7 @@ public class SightingResourceIT {
             .notes(UPDATED_NOTES);
 
         restSightingMockMvc.perform(put("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(updatedSighting)))
             .andExpect(status().isOk());
 
@@ -390,11 +370,9 @@ public class SightingResourceIT {
     public void updateNonExistingSighting() throws Exception {
         int databaseSizeBeforeUpdate = sightingRepository.findAll().size();
 
-        // Create the Sighting
-
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restSightingMockMvc.perform(put("/api/sightings")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(sighting)))
             .andExpect(status().isBadRequest());
 
@@ -416,7 +394,7 @@ public class SightingResourceIT {
 
         // Delete the sighting
         restSightingMockMvc.perform(delete("/api/sightings/{id}", sighting.getId())
-            .accept(TestUtil.APPLICATION_JSON))
+            .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
@@ -430,10 +408,12 @@ public class SightingResourceIT {
     @Test
     @Transactional
     public void searchSighting() throws Exception {
+        // Configure the mock search repository
         // Initialize the database
         sightingRepository.saveAndFlush(sighting);
         when(mockSightingSearchRepository.search(queryStringQuery("id:" + sighting.getId()), PageRequest.of(0, 20)))
             .thenReturn(new PageImpl<>(Collections.singletonList(sighting), PageRequest.of(0, 1), 1));
+
         // Search the sighting
         restSightingMockMvc.perform(get("/api/_search/sightings?query=id:" + sighting.getId()))
             .andExpect(status().isOk())

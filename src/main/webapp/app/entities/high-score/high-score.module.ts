@@ -11,6 +11,6 @@ import { highScoreRoute } from './high-score.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(highScoreRoute)],
   declarations: [HighScoreComponent, HighScoreDetailComponent, HighScoreUpdateComponent, HighScoreDeleteDialogComponent],
-  entryComponents: [HighScoreDeleteDialogComponent]
+  entryComponents: [HighScoreDeleteDialogComponent],
 })
 export class GatewayHighScoreModule {}

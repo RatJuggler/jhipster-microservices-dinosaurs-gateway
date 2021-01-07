@@ -48,7 +48,7 @@ describe('Player e2e test', () => {
       playerUpdatePage.setEmailInput('VHZPT@&amp;(.n{#FXA'),
       playerUpdatePage.setNameInput('name'),
       playerUpdatePage.setAvatarInput(absolutePath),
-      playerUpdatePage.setCreatedDtInput('01/01/2001' + protractor.Key.TAB + '02:30AM')
+      playerUpdatePage.setCreatedDtInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
     ]);
 
     expect(await playerUpdatePage.getEmailInput()).to.eq('VHZPT@&amp;(.n{#FXA', 'Expected Email value to be equals to VHZPT@&amp;(.n{#FXA');

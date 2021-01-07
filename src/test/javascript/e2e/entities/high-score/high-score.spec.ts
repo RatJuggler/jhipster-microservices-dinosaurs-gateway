@@ -4,7 +4,7 @@ import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 import {
   HighScoreComponentsPage,
   /* HighScoreDeleteDialog, */
-  HighScoreUpdatePage
+  HighScoreUpdatePage,
 } from './high-score.page-object';
 
 const expect = chai.expect;

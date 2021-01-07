@@ -6,7 +6,7 @@ import { ILevel } from 'app/shared/model/level.model';
 import { LevelService } from './level.service';
 
 @Component({
-  templateUrl: './level-delete-dialog.component.html'
+  templateUrl: './level-delete-dialog.component.html',
 })
 export class LevelDeleteDialogComponent {
   level?: ILevel;

@@ -11,6 +11,6 @@ import { playerRoute } from './player.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(playerRoute)],
   declarations: [PlayerComponent, PlayerDetailComponent, PlayerUpdateComponent, PlayerDeleteDialogComponent],
-  entryComponents: [PlayerDeleteDialogComponent]
+  entryComponents: [PlayerDeleteDialogComponent],
 })
 export class GatewayPlayerModule {}

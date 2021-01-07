@@ -11,6 +11,6 @@ import { dinosaurRoute } from './dinosaur.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(dinosaurRoute)],
   declarations: [DinosaurComponent, DinosaurDetailComponent, DinosaurUpdateComponent, DinosaurDeleteDialogComponent],
-  entryComponents: [DinosaurDeleteDialogComponent]
+  entryComponents: [DinosaurDeleteDialogComponent],
 })
 export class GatewayDinosaurModule {}

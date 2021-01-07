@@ -23,9 +23,9 @@ import { ErrorComponent } from './layouts/error/error.component';
     GatewayHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
-    GatewayAppRoutingModule
+    GatewayAppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
 })
 export class GatewayAppModule {}

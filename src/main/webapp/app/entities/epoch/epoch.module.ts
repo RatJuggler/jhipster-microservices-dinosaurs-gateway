@@ -11,6 +11,6 @@ import { epochRoute } from './epoch.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(epochRoute)],
   declarations: [EpochComponent, EpochDetailComponent, EpochUpdateComponent, EpochDeleteDialogComponent],
-  entryComponents: [EpochDeleteDialogComponent]
+  entryComponents: [EpochDeleteDialogComponent],
 })
 export class GatewayEpochModule {}

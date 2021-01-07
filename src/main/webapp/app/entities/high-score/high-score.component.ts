@@ -11,7 +11,7 @@ import { HighScoreDeleteDialogComponent } from './high-score-delete-dialog.compo
 
 @Component({
   selector: 'jhi-high-score',
-  templateUrl: './high-score.component.html'
+  templateUrl: './high-score.component.html',
 })
 export class HighScoreComponent implements OnInit, OnDestroy {
   highScores?: IHighScore[];
@@ -34,7 +34,7 @@ export class HighScoreComponent implements OnInit, OnDestroy {
     if (this.currentSearch) {
       this.highScoreService
         .search({
-          query: this.currentSearch
+          query: this.currentSearch,
         })
         .subscribe((res: HttpResponse<IHighScore[]>) => (this.highScores = res.body || []));
       return;

@@ -14,7 +14,7 @@ import { AlertError } from 'app/shared/alert/alert-error.model';
 
 @Component({
   selector: 'jhi-level-update',
-  templateUrl: './level-update.component.html'
+  templateUrl: './level-update.component.html',
 })
 export class LevelUpdateComponent implements OnInit {
   isSaving = false;
@@ -24,7 +24,7 @@ export class LevelUpdateComponent implements OnInit {
     name: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(64)]],
     order: [null, [Validators.required, Validators.min(0), Validators.max(999)]],
     definition: [null, [Validators.required]],
-    createdDt: [null, [Validators.required]]
+    createdDt: [null, [Validators.required]],
   });
 
   constructor(
@@ -52,7 +52,7 @@ export class LevelUpdateComponent implements OnInit {
       name: level.name,
       order: level.order,
       definition: level.definition,
-      createdDt: level.createdDt ? level.createdDt.format(DATE_TIME_FORMAT) : null
+      createdDt: level.createdDt ? level.createdDt.format(DATE_TIME_FORMAT) : null,
     });
   }
 
@@ -64,7 +64,7 @@ export class LevelUpdateComponent implements OnInit {
     this.dataUtils.openFile(contentType, base64String);
   }
 
-  setFileData(event: Event, field: string, isImage: boolean): void {
+  setFileData(event: any, field: string, isImage: boolean): void {
     this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe(null, (err: JhiFileLoadError) => {
       this.eventManager.broadcast(
         new JhiEventWithContent<AlertError>('gatewayApp.error', { ...err, key: 'error.file.' + err.key })
@@ -93,7 +93,7 @@ export class LevelUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       order: this.editForm.get(['order'])!.value,
       definition: this.editForm.get(['definition'])!.value,
-      createdDt: this.editForm.get(['createdDt'])!.value ? moment(this.editForm.get(['createdDt'])!.value, DATE_TIME_FORMAT) : undefined
+      createdDt: this.editForm.get(['createdDt'])!.value ? moment(this.editForm.get(['createdDt'])!.value, DATE_TIME_FORMAT) : undefined,
     };
   }
 

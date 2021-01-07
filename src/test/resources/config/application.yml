@@ -14,6 +14,9 @@
 # ===================================================================
 
 spring:
+  profiles:
+    # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
+    #active: testcontainers
   application:
     name: gateway
   datasource:
@@ -60,9 +63,6 @@ spring:
     allow-bean-definition-overriding: true
   messages:
     basename: i18n/messages
-  mvc:
-    favicon:
-      enabled: false
   task:
     execution:
       thread-name-prefix: gateway-task-
@@ -92,7 +92,7 @@ jhipster:
     name: 'gatewayApp'
   logging:
     # To test json console appender
-    use-json-format: true # By default, logs are in Json format
+    use-json-format: false
     logstash:
       enabled: false
       host: localhost
@@ -105,7 +105,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: YjBlN2Y3MzE1MzQ2MmFkOWYxMmU2ZjM4YzE2YTY1MTA5ODZkYzhmYzNjZTFmOGRhZTNjYTczNjAzNzdkYjVmNDg2MDllOGE1YjJlZmQ3MzE5YWU2ZTU1MTg2OTU5OGQwNjk3NDE0ZjdiZTc1MjExY2Q3YjQ3YzdlMTU2MjA0MGY=
+        base64-secret: ZTMzZGUzZTc0NmE5NjAxYjdhYmVkMzAyNmQ3NWFhZDI3M2JlMTYzNDQyMTAwZDNiOGMyZjgwZmYzNTgyNDlkODJmOGFkNWQyNTExMGQ5ZjgzNjE1MjQxZGU4Y2MxOWUwNGUzYWIxODE3NmIxMWNiMTc2MzE0ODllOGFiMzk5MzA=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:

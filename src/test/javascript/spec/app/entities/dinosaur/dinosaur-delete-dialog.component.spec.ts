@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [DinosaurDeleteDialogComponent]
+        declarations: [DinosaurDeleteDialogComponent],
       })
         .overrideTemplate(DinosaurDeleteDialogComponent, '')
         .compileComponents();

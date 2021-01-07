@@ -18,7 +18,7 @@ type SelectableEntity = IEpoch | IClade;
 
 @Component({
   selector: 'jhi-dinosaur-update',
-  templateUrl: './dinosaur-update.component.html'
+  templateUrl: './dinosaur-update.component.html',
 })
 export class DinosaurUpdateComponent implements OnInit {
   isSaving = false;
@@ -39,7 +39,7 @@ export class DinosaurUpdateComponent implements OnInit {
     modifiedBy: [null, [Validators.min(0)]],
     modifiedDt: [],
     epochItLivedId: [null, Validators.required],
-    cladeId: [null, Validators.required]
+    cladeId: [null, Validators.required],
   });
 
   constructor(
@@ -81,7 +81,7 @@ export class DinosaurUpdateComponent implements OnInit {
       modifiedBy: dinosaur.modifiedBy,
       modifiedDt: dinosaur.modifiedDt ? dinosaur.modifiedDt.format(DATE_TIME_FORMAT) : null,
       epochItLivedId: dinosaur.epochItLivedId,
-      cladeId: dinosaur.cladeId
+      cladeId: dinosaur.cladeId,
     });
   }
 
@@ -115,7 +115,7 @@ export class DinosaurUpdateComponent implements OnInit {
       modifiedBy: this.editForm.get(['modifiedBy'])!.value,
       modifiedDt: this.editForm.get(['modifiedDt'])!.value ? moment(this.editForm.get(['modifiedDt'])!.value, DATE_TIME_FORMAT) : undefined,
       epochItLivedId: this.editForm.get(['epochItLivedId'])!.value,
-      cladeId: this.editForm.get(['cladeId'])!.value
+      cladeId: this.editForm.get(['cladeId'])!.value,
     };
   }
 

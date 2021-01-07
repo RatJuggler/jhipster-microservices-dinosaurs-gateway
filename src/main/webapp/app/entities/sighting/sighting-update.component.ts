@@ -12,7 +12,7 @@ import { SightingService } from './sighting.service';
 
 @Component({
   selector: 'jhi-sighting-update',
-  templateUrl: './sighting-update.component.html'
+  templateUrl: './sighting-update.component.html',
 })
 export class SightingUpdateComponent implements OnInit {
   isSaving = false;
@@ -26,7 +26,7 @@ export class SightingUpdateComponent implements OnInit {
     lng: [null, [Validators.required]],
     number: [null, [Validators.min(0), Validators.max(999)]],
     heading: [],
-    notes: [null, [Validators.maxLength(64)]]
+    notes: [null, [Validators.maxLength(64)]],
   });
 
   constructor(protected sightingService: SightingService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -52,7 +52,7 @@ export class SightingUpdateComponent implements OnInit {
       lng: sighting.lng,
       number: sighting.number,
       heading: sighting.heading,
-      notes: sighting.notes
+      notes: sighting.notes,
     });
   }
 
@@ -81,7 +81,7 @@ export class SightingUpdateComponent implements OnInit {
       lng: this.editForm.get(['lng'])!.value,
       number: this.editForm.get(['number'])!.value,
       heading: this.editForm.get(['heading'])!.value,
-      notes: this.editForm.get(['notes'])!.value
+      notes: this.editForm.get(['notes'])!.value,
     };
   }
 

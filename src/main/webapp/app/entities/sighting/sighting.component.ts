@@ -13,7 +13,7 @@ import { SightingDeleteDialogComponent } from './sighting-delete-dialog.componen
 
 @Component({
   selector: 'jhi-sighting',
-  templateUrl: './sighting.component.html'
+  templateUrl: './sighting.component.html',
 })
 export class SightingComponent implements OnInit, OnDestroy {
   sightings: ISighting[];
@@ -36,7 +36,7 @@ export class SightingComponent implements OnInit, OnDestroy {
     this.itemsPerPage = ITEMS_PER_PAGE;
     this.page = 0;
     this.links = {
-      last: 0
+      last: 0,
     };
     this.predicate = 'id';
     this.ascending = true;
@@ -53,7 +53,7 @@ export class SightingComponent implements OnInit, OnDestroy {
           query: this.currentSearch,
           page: this.page,
           size: this.itemsPerPage,
-          sort: this.sort()
+          sort: this.sort(),
         })
         .subscribe((res: HttpResponse<ISighting[]>) => this.paginateSightings(res.body, res.headers));
       return;
@@ -63,7 +63,7 @@ export class SightingComponent implements OnInit, OnDestroy {
       .query({
         page: this.page,
         size: this.itemsPerPage,
-        sort: this.sort()
+        sort: this.sort(),
       })
       .subscribe((res: HttpResponse<ISighting[]>) => this.paginateSightings(res.body, res.headers));
   }
@@ -82,7 +82,7 @@ export class SightingComponent implements OnInit, OnDestroy {
   search(query: string): void {
     this.sightings = [];
     this.links = {
-      last: 0
+      last: 0,
     };
     this.page = 0;
     if (query) {

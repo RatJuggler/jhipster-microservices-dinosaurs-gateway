@@ -1,6 +1,7 @@
 package com.rj.dinosaurs.gateway.repository;
 
 import com.rj.dinosaurs.gateway.GatewayApp;
+
 import com.rj.dinosaurs.gateway.config.Constants;
 import com.rj.dinosaurs.gateway.config.audit.AuditEventConverter;
 import com.rj.dinosaurs.gateway.domain.PersistentAuditEvent;

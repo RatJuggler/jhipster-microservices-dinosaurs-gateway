@@ -140,6 +140,6 @@ public class HighScoreResource {
         log.debug("REST request to search HighScores for query {}", query);
         return StreamSupport
             .stream(highScoreSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        .collect(Collectors.toList());
     }
 }

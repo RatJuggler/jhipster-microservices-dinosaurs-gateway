@@ -19,7 +19,7 @@ type SelectableEntity = IPlayer | ILevel;
 
 @Component({
   selector: 'jhi-high-score-update',
-  templateUrl: './high-score-update.component.html'
+  templateUrl: './high-score-update.component.html',
 })
 export class HighScoreUpdateComponent implements OnInit {
   isSaving = false;
@@ -31,7 +31,7 @@ export class HighScoreUpdateComponent implements OnInit {
     score: [null, [Validators.required]],
     achievedDt: [null, [Validators.required]],
     player: [null, Validators.required],
-    level: [null, Validators.required]
+    level: [null, Validators.required],
   });
 
   constructor(
@@ -103,7 +103,7 @@ export class HighScoreUpdateComponent implements OnInit {
       score: highScore.score,
       achievedDt: highScore.achievedDt ? highScore.achievedDt.format(DATE_TIME_FORMAT) : null,
       player: highScore.player,
-      level: highScore.level
+      level: highScore.level,
     });
   }
 
@@ -128,7 +128,7 @@ export class HighScoreUpdateComponent implements OnInit {
       score: this.editForm.get(['score'])!.value,
       achievedDt: this.editForm.get(['achievedDt'])!.value ? moment(this.editForm.get(['achievedDt'])!.value, DATE_TIME_FORMAT) : undefined,
       player: this.editForm.get(['player'])!.value,
-      level: this.editForm.get(['level'])!.value
+      level: this.editForm.get(['level'])!.value,
     };
   }
 

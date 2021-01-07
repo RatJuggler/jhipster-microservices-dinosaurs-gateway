@@ -44,7 +44,7 @@ describe('Epoch e2e test', () => {
       epochUpdatePage.periodSelectLastOption(),
       epochUpdatePage.epochSelectLastOption(),
       epochUpdatePage.setFromMaInput('5'),
-      epochUpdatePage.setToMaInput('5')
+      epochUpdatePage.setToMaInput('5'),
     ]);
 
     expect(await epochUpdatePage.getFromMaInput()).to.eq('5', 'Expected fromMa value to be equals to 5');

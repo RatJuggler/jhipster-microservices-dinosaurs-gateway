@@ -16,7 +16,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -31,7 +31,7 @@ describe('Service Tests', () => {
       it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
-            achievedDt: currentDate.format(DATE_TIME_FORMAT)
+            achievedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -47,14 +47,14 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
-            achievedDt: currentDate.format(DATE_TIME_FORMAT)
+            achievedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            achievedDt: currentDate
+            achievedDt: currentDate,
           },
           returnedFromService
         );
@@ -70,14 +70,14 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             score: 1,
-            achievedDt: currentDate.format(DATE_TIME_FORMAT)
+            achievedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            achievedDt: currentDate
+            achievedDt: currentDate,
           },
           returnedFromService
         );
@@ -93,14 +93,14 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             score: 1,
-            achievedDt: currentDate.format(DATE_TIME_FORMAT)
+            achievedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            achievedDt: currentDate
+            achievedDt: currentDate,
           },
           returnedFromService
         );

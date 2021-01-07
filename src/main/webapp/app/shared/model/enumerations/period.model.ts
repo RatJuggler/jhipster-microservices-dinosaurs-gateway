@@ -1,5 +1,7 @@
 export const enum Period {
-  TRIASSIC,
-  JURASSIC,
-  CRETACEOUS
+  TRIASSIC = 'TRIASSIC',
+
+  JURASSIC = 'JURASSIC',
+
+  CRETACEOUS = 'CRETACEOUS',
 }

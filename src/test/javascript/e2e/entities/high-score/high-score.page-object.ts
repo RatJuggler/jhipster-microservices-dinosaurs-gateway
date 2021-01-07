@@ -56,10 +56,7 @@ export class HighScoreUpdatePage {
   }
 
   async playerSelectLastOption(): Promise<void> {
-    await this.playerSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.playerSelect.all(by.tagName('option')).last().click();
   }
 
   async playerSelectOption(option: string): Promise<void> {
@@ -75,10 +72,7 @@ export class HighScoreUpdatePage {
   }
 
   async levelSelectLastOption(): Promise<void> {
-    await this.levelSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.levelSelect.all(by.tagName('option')).last().click();
   }
 
   async levelSelectOption(option: string): Promise<void> {

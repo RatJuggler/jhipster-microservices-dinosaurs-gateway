@@ -47,10 +47,7 @@ export class EpochUpdatePage {
   }
 
   async periodSelectLastOption(): Promise<void> {
-    await this.periodSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.periodSelect.all(by.tagName('option')).last().click();
   }
 
   async setEpochSelect(epoch: string): Promise<void> {
@@ -62,10 +59,7 @@ export class EpochUpdatePage {
   }
 
   async epochSelectLastOption(): Promise<void> {
-    await this.epochSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
+    await this.epochSelect.all(by.tagName('option')).last().click();
   }
 
   async setFromMaInput(fromMa: string): Promise<void> {

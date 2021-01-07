@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router';
-import { JhiResolvePagingParams } from 'ng-jhipster';
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
+import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IEpoch, Epoch } from 'app/shared/model/epoch.model';
 import { EpochService } from './epoch.service';
@@ -38,50 +38,47 @@ export const epochRoute: Routes = [
   {
     path: '',
     component: EpochComponent,
-    resolve: {
-      pagingParams: JhiResolvePagingParams
-    },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: [Authority.USER],
       defaultSort: 'id,asc',
-      pageTitle: 'gatewayApp.epoch.home.title'
+      pageTitle: 'gatewayApp.epoch.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: EpochDetailComponent,
     resolve: {
-      epoch: EpochResolve
+      epoch: EpochResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.epoch.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.epoch.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: EpochUpdateComponent,
     resolve: {
-      epoch: EpochResolve
+      epoch: EpochResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.epoch.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.epoch.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: EpochUpdateComponent,
     resolve: {
-      epoch: EpochResolve
+      epoch: EpochResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.epoch.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.epoch.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

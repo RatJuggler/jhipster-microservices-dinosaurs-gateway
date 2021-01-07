@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [HighScoreDeleteDialogComponent]
+        declarations: [HighScoreDeleteDialogComponent],
       })
         .overrideTemplate(HighScoreDeleteDialogComponent, '')
         .compileComponents();

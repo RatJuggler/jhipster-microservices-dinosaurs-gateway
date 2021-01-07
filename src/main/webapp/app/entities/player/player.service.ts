@@ -58,7 +58,7 @@ export class PlayerService {
 
   protected convertDateFromClient(player: IPlayer): IPlayer {
     const copy: IPlayer = Object.assign({}, player, {
-      createdDt: player.createdDt && player.createdDt.isValid() ? player.createdDt.toJSON() : undefined
+      createdDt: player.createdDt && player.createdDt.isValid() ? player.createdDt.toJSON() : undefined,
     });
     return copy;
   }

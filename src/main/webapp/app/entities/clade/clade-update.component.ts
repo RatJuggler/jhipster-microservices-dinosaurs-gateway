@@ -10,7 +10,7 @@ import { CladeService } from './clade.service';
 
 @Component({
   selector: 'jhi-clade-update',
-  templateUrl: './clade-update.component.html'
+  templateUrl: './clade-update.component.html',
 })
 export class CladeUpdateComponent implements OnInit {
   isSaving = false;
@@ -20,7 +20,7 @@ export class CladeUpdateComponent implements OnInit {
     name: [null, [Validators.maxLength(64)]],
     pronunciation: [null, [Validators.maxLength(64)]],
     meaning: [null, [Validators.maxLength(64)]],
-    description: [null, [Validators.maxLength(64)]]
+    description: [null, [Validators.maxLength(64)]],
   });
 
   constructor(protected cladeService: CladeService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -37,7 +37,7 @@ export class CladeUpdateComponent implements OnInit {
       name: clade.name,
       pronunciation: clade.pronunciation,
       meaning: clade.meaning,
-      description: clade.description
+      description: clade.description,
     });
   }
 
@@ -62,7 +62,7 @@ export class CladeUpdateComponent implements OnInit {
       name: this.editForm.get(['name'])!.value,
       pronunciation: this.editForm.get(['pronunciation'])!.value,
       meaning: this.editForm.get(['meaning'])!.value,
-      description: this.editForm.get(['description'])!.value
+      description: this.editForm.get(['description'])!.value,
     };
   }
 

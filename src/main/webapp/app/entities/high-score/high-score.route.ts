@@ -4,6 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
+import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { IHighScore, HighScore } from 'app/shared/model/high-score.model';
 import { HighScoreService } from './high-score.service';
@@ -38,45 +39,45 @@ export const highScoreRoute: Routes = [
     path: '',
     component: HighScoreComponent,
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.highScore.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.highScore.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: HighScoreDetailComponent,
     resolve: {
-      highScore: HighScoreResolve
+      highScore: HighScoreResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.highScore.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.highScore.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: HighScoreUpdateComponent,
     resolve: {
-      highScore: HighScoreResolve
+      highScore: HighScoreResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.highScore.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.highScore.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: HighScoreUpdateComponent,
     resolve: {
-      highScore: HighScoreResolve
+      highScore: HighScoreResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.highScore.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.highScore.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

@@ -20,7 +20,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [PlayerDeleteDialogComponent]
+        declarations: [PlayerDeleteDialogComponent],
       })
         .overrideTemplate(PlayerDeleteDialogComponent, '')
         .compileComponents();

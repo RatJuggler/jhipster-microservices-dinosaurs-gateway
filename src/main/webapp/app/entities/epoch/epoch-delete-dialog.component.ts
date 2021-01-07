@@ -6,7 +6,7 @@ import { IEpoch } from 'app/shared/model/epoch.model';
 import { EpochService } from './epoch.service';
 
 @Component({
-  templateUrl: './epoch-delete-dialog.component.html'
+  templateUrl: './epoch-delete-dialog.component.html',
 })
 export class EpochDeleteDialogComponent {
   epoch?: IEpoch;

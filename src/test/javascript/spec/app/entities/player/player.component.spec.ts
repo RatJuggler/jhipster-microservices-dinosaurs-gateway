@@ -16,7 +16,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [PlayerComponent]
+        declarations: [PlayerComponent],
       })
         .overrideTemplate(PlayerComponent, '')
         .compileComponents();
@@ -33,7 +33,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new Player(123)],
-            headers
+            headers,
           })
         )
       );

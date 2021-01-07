@@ -10,7 +10,7 @@ import { EpochService } from './epoch.service';
 
 @Component({
   selector: 'jhi-epoch-update',
-  templateUrl: './epoch-update.component.html'
+  templateUrl: './epoch-update.component.html',
 })
 export class EpochUpdateComponent implements OnInit {
   isSaving = false;
@@ -20,7 +20,7 @@ export class EpochUpdateComponent implements OnInit {
     period: [null, [Validators.required]],
     epoch: [null, [Validators.required]],
     fromMa: [null, [Validators.required, Validators.min(0), Validators.max(999)]],
-    toMa: [null, [Validators.required, Validators.min(0), Validators.max(999)]]
+    toMa: [null, [Validators.required, Validators.min(0), Validators.max(999)]],
   });
 
   constructor(protected epochService: EpochService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -37,7 +37,7 @@ export class EpochUpdateComponent implements OnInit {
       period: epoch.period,
       epoch: epoch.epoch,
       fromMa: epoch.fromMa,
-      toMa: epoch.toMa
+      toMa: epoch.toMa,
     });
   }
 
@@ -62,7 +62,7 @@ export class EpochUpdateComponent implements OnInit {
       period: this.editForm.get(['period'])!.value,
       epoch: this.editForm.get(['epoch'])!.value,
       fromMa: this.editForm.get(['fromMa'])!.value,
-      toMa: this.editForm.get(['toMa'])!.value
+      toMa: this.editForm.get(['toMa'])!.value,
     };
   }
 

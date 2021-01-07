@@ -16,7 +16,7 @@ describe('Component Tests', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [GatewayTestModule],
-        declarations: [HighScoreComponent]
+        declarations: [HighScoreComponent],
       })
         .overrideTemplate(HighScoreComponent, '')
         .compileComponents();
@@ -33,7 +33,7 @@ describe('Component Tests', () => {
         of(
           new HttpResponse({
             body: [new HighScore(123)],
-            headers
+            headers,
           })
         )
       );

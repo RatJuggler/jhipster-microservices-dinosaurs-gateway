@@ -4,29 +4,26 @@ import com.rj.dinosaurs.gateway.GatewayApp;
 import com.rj.dinosaurs.gateway.domain.Level;
 import com.rj.dinosaurs.gateway.repository.LevelRepository;
 import com.rj.dinosaurs.gateway.repository.search.LevelSearchRepository;
-import com.rj.dinosaurs.gateway.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
+import org.mockito.Mock;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Base64Utils;
-import org.springframework.validation.Validator;
-
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.List;
 
-import static com.rj.dinosaurs.gateway.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.elasticsearch.index.query.QueryBuilders.queryStringQuery;
 import static org.hamcrest.Matchers.hasItem;
@@ -38,6 +35,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Integration tests for the {@link LevelResource} REST controller.
  */
 @SpringBootTest(classes = GatewayApp.class)
+@ExtendWith(MockitoExtension.class)
+@AutoConfigureMockMvc
+@WithMockUser
 public class LevelResourceIT {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
@@ -64,35 +64,12 @@ public class LevelResourceIT {
     private LevelSearchRepository mockLevelSearchRepository;
 
     @Autowired
-    private MappingJackson2HttpMessageConverter jacksonMessageConverter;
-
-    @Autowired
-    private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
-
-    @Autowired
-    private ExceptionTranslator exceptionTranslator;
-
-    @Autowired
     private EntityManager em;
 
     @Autowired
-    private Validator validator;
-
     private MockMvc restLevelMockMvc;
 
     private Level level;
-
-    @BeforeEach
-    public void setup() {
-        MockitoAnnotations.initMocks(this);
-        final LevelResource levelResource = new LevelResource(levelRepository, mockLevelSearchRepository);
-        this.restLevelMockMvc = MockMvcBuilders.standaloneSetup(levelResource)
-            .setCustomArgumentResolvers(pageableArgumentResolver)
-            .setControllerAdvice(exceptionTranslator)
-            .setConversionService(createFormattingConversionService())
-            .setMessageConverters(jacksonMessageConverter)
-            .setValidator(validator).build();
-    }
 
     /**
      * Create an entity for this test.
@@ -132,10 +109,9 @@ public class LevelResourceIT {
     @Transactional
     public void createLevel() throws Exception {
         int databaseSizeBeforeCreate = levelRepository.findAll().size();
-
         // Create the Level
         restLevelMockMvc.perform(post("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isCreated());
 
@@ -162,7 +138,7 @@ public class LevelResourceIT {
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restLevelMockMvc.perform(post("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isBadRequest());
 
@@ -184,8 +160,9 @@ public class LevelResourceIT {
 
         // Create the Level, which fails.
 
+
         restLevelMockMvc.perform(post("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isBadRequest());
 
@@ -202,8 +179,9 @@ public class LevelResourceIT {
 
         // Create the Level, which fails.
 
+
         restLevelMockMvc.perform(post("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isBadRequest());
 
@@ -220,8 +198,9 @@ public class LevelResourceIT {
 
         // Create the Level, which fails.
 
+
         restLevelMockMvc.perform(post("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isBadRequest());
 
@@ -262,7 +241,6 @@ public class LevelResourceIT {
             .andExpect(jsonPath("$.definition").value(DEFAULT_DEFINITION.toString()))
             .andExpect(jsonPath("$.createdDt").value(DEFAULT_CREATED_DT.toString()));
     }
-
     @Test
     @Transactional
     public void getNonExistingLevel() throws Exception {
@@ -290,7 +268,7 @@ public class LevelResourceIT {
             .createdDt(UPDATED_CREATED_DT);
 
         restLevelMockMvc.perform(put("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(updatedLevel)))
             .andExpect(status().isOk());
 
@@ -312,11 +290,9 @@ public class LevelResourceIT {
     public void updateNonExistingLevel() throws Exception {
         int databaseSizeBeforeUpdate = levelRepository.findAll().size();
 
-        // Create the Level
-
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restLevelMockMvc.perform(put("/api/levels")
-            .contentType(TestUtil.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(level)))
             .andExpect(status().isBadRequest());
 
@@ -338,7 +314,7 @@ public class LevelResourceIT {
 
         // Delete the level
         restLevelMockMvc.perform(delete("/api/levels/{id}", level.getId())
-            .accept(TestUtil.APPLICATION_JSON))
+            .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
@@ -352,10 +328,12 @@ public class LevelResourceIT {
     @Test
     @Transactional
     public void searchLevel() throws Exception {
+        // Configure the mock search repository
         // Initialize the database
         levelRepository.saveAndFlush(level);
         when(mockLevelSearchRepository.search(queryStringQuery("id:" + level.getId())))
             .thenReturn(Collections.singletonList(level));
+
         // Search the level
         restLevelMockMvc.perform(get("/api/_search/levels?query=id:" + level.getId()))
             .andExpect(status().isOk())

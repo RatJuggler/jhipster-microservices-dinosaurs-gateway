@@ -17,7 +17,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -33,7 +33,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             createdDt: currentDate.format(DATE_TIME_FORMAT),
-            modifiedDt: currentDate.format(DATE_TIME_FORMAT)
+            modifiedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -50,7 +50,7 @@ describe('Service Tests', () => {
           {
             id: 0,
             createdDt: currentDate.format(DATE_TIME_FORMAT),
-            modifiedDt: currentDate.format(DATE_TIME_FORMAT)
+            modifiedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -58,7 +58,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             createdDt: currentDate,
-            modifiedDt: currentDate
+            modifiedDt: currentDate,
           },
           returnedFromService
         );
@@ -83,7 +83,7 @@ describe('Service Tests', () => {
             createdBy: 1,
             createdDt: currentDate.format(DATE_TIME_FORMAT),
             modifiedBy: 1,
-            modifiedDt: currentDate.format(DATE_TIME_FORMAT)
+            modifiedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -91,7 +91,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             createdDt: currentDate,
-            modifiedDt: currentDate
+            modifiedDt: currentDate,
           },
           returnedFromService
         );
@@ -116,7 +116,7 @@ describe('Service Tests', () => {
             createdBy: 1,
             createdDt: currentDate.format(DATE_TIME_FORMAT),
             modifiedBy: 1,
-            modifiedDt: currentDate.format(DATE_TIME_FORMAT)
+            modifiedDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -124,7 +124,7 @@ describe('Service Tests', () => {
         const expected = Object.assign(
           {
             createdDt: currentDate,
-            modifiedDt: currentDate
+            modifiedDt: currentDate,
           },
           returnedFromService
         );

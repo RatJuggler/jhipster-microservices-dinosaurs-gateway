@@ -140,6 +140,6 @@ public class LevelResource {
         log.debug("REST request to search Levels for query {}", query);
         return StreamSupport
             .stream(levelSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        .collect(Collectors.toList());
     }
 }

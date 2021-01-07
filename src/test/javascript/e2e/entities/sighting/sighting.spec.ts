@@ -48,7 +48,7 @@ describe('Sighting e2e test', () => {
       sightingUpdatePage.setLngInput('5'),
       sightingUpdatePage.setNumberInput('5'),
       sightingUpdatePage.headingSelectLastOption(),
-      sightingUpdatePage.setNotesInput('notes')
+      sightingUpdatePage.setNotesInput('notes'),
     ]);
 
     expect(await sightingUpdatePage.getDinosaurInput()).to.eq('5', 'Expected dinosaur value to be equals to 5');

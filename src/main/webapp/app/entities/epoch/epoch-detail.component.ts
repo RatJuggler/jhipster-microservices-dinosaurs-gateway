@@ -5,7 +5,7 @@ import { IEpoch } from 'app/shared/model/epoch.model';
 
 @Component({
   selector: 'jhi-epoch-detail',
-  templateUrl: './epoch-detail.component.html'
+  templateUrl: './epoch-detail.component.html',
 })
 export class EpochDetailComponent implements OnInit {
   epoch: IEpoch | null = null;

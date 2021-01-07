@@ -11,6 +11,6 @@ import { levelRoute } from './level.route';
 @NgModule({
   imports: [GatewaySharedModule, RouterModule.forChild(levelRoute)],
   declarations: [LevelComponent, LevelDetailComponent, LevelUpdateComponent, LevelDeleteDialogComponent],
-  entryComponents: [LevelDeleteDialogComponent]
+  entryComponents: [LevelDeleteDialogComponent],
 })
 export class GatewayLevelModule {}

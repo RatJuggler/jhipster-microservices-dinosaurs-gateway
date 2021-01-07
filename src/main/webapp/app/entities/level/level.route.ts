@@ -4,6 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
+import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { ILevel, Level } from 'app/shared/model/level.model';
 import { LevelService } from './level.service';
@@ -38,45 +39,45 @@ export const levelRoute: Routes = [
     path: '',
     component: LevelComponent,
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.level.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.level.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/view',
     component: LevelDetailComponent,
     resolve: {
-      level: LevelResolve
+      level: LevelResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.level.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.level.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: 'new',
     component: LevelUpdateComponent,
     resolve: {
-      level: LevelResolve
+      level: LevelResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.level.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.level.home.title',
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
   },
   {
     path: ':id/edit',
     component: LevelUpdateComponent,
     resolve: {
-      level: LevelResolve
+      level: LevelResolve,
     },
     data: {
-      authorities: ['ROLE_USER'],
-      pageTitle: 'gatewayApp.level.home.title'
+      authorities: [Authority.USER],
+      pageTitle: 'gatewayApp.level.home.title',
     },
-    canActivate: [UserRouteAccessService]
-  }
+    canActivate: [UserRouteAccessService],
+  },
 ];

@@ -15,7 +15,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -39,7 +39,7 @@ describe('Service Tests', () => {
       it('should create a Epoch', () => {
         const returnedFromService = Object.assign(
           {
-            id: 0
+            id: 0,
           },
           elemDefault
         );
@@ -59,7 +59,7 @@ describe('Service Tests', () => {
             period: 'BBBBBB',
             epoch: 'BBBBBB',
             fromMa: 1,
-            toMa: 1
+            toMa: 1,
           },
           elemDefault
         );
@@ -79,7 +79,7 @@ describe('Service Tests', () => {
             period: 'BBBBBB',
             epoch: 'BBBBBB',
             fromMa: 1,
-            toMa: 1
+            toMa: 1,
           },
           elemDefault
         );

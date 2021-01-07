@@ -6,8 +6,6 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
-const AngularCompilerPlugin = require('@ngtools/webpack').AngularCompilerPlugin;
-const path = require('path');
 
 const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
@@ -17,10 +15,9 @@ const sass = require('sass');
 
 module.exports = webpackMerge(commonConfig({ env: ENV }), {
     // Enable source maps. Please note that this will slow down the build.
-    // You have to enable it in Terser config below and in tsconfig-aot.json as well
+    // You have to enable it in Terser config below and in tsconfig.json as well
     // devtool: 'source-map',
     entry: {
-        polyfills: './src/main/webapp/app/polyfills',
         global: './src/main/webapp/content/scss/global.scss',
         main: './src/main/webapp/app/app.main'
     },
@@ -30,10 +27,7 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         chunkFilename: 'app/[id].[hash].chunk.js'
     },
     module: {
-        rules: [{
-            test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-            loader: '@ngtools/webpack'
-        },
+        rules: [
         {
             test: /\.scss$/,
             use: ['to-string-loader', 'css-loader', 'postcss-loader', {
@@ -141,11 +135,6 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             openAnalyzer: false,
             // Webpack statistics in target folder
             reportFilename: '../stats.html'
-        }),
-        new AngularCompilerPlugin({
-            mainPath: utils.root('src/main/webapp/app/app.main.ts'),
-            tsConfigPath: utils.root('tsconfig-aot.json'),
-            sourceMap: true
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,

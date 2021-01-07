@@ -11,7 +11,7 @@ import { PlayerDeleteDialogComponent } from './player-delete-dialog.component';
 
 @Component({
   selector: 'jhi-player',
-  templateUrl: './player.component.html'
+  templateUrl: './player.component.html',
 })
 export class PlayerComponent implements OnInit, OnDestroy {
   players?: IPlayer[];
@@ -35,7 +35,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
     if (this.currentSearch) {
       this.playerService
         .search({
-          query: this.currentSearch
+          query: this.currentSearch,
         })
         .subscribe((res: HttpResponse<IPlayer[]>) => (this.players = res.body || []));
       return;
@@ -69,7 +69,7 @@ export class PlayerComponent implements OnInit, OnDestroy {
     return this.dataUtils.byteSize(base64String);
   }
 
-  openFile(contentType: string, base64String: string): void {
+  openFile(contentType = '', base64String: string): void {
     return this.dataUtils.openFile(contentType, base64String);
   }
 

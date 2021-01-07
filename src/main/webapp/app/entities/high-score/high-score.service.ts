@@ -58,7 +58,7 @@ export class HighScoreService {
 
   protected convertDateFromClient(highScore: IHighScore): IHighScore {
     const copy: IHighScore = Object.assign({}, highScore, {
-      achievedDt: highScore.achievedDt && highScore.achievedDt.isValid() ? highScore.achievedDt.toJSON() : undefined
+      achievedDt: highScore.achievedDt && highScore.achievedDt.isValid() ? highScore.achievedDt.toJSON() : undefined,
     });
     return copy;
   }

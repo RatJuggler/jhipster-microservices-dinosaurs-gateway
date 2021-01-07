@@ -140,6 +140,6 @@ public class PlayerResource {
         log.debug("REST request to search Players for query {}", query);
         return StreamSupport
             .stream(playerSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
+        .collect(Collectors.toList());
     }
 }

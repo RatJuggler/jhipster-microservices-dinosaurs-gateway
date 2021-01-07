@@ -17,7 +17,7 @@ import com.rj.dinosaurs.gateway.domain.enumeration.Heading;
  */
 @Entity
 @Table(name = "sighting")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @org.springframework.data.elasticsearch.annotations.Document(indexName = "sighting")
 public class Sighting implements Serializable {
 
@@ -62,7 +62,7 @@ public class Sighting implements Serializable {
     @Column(name = "notes", length = 64)
     private String notes;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
     }
@@ -174,7 +174,7 @@ public class Sighting implements Serializable {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
     public boolean equals(Object o) {
@@ -192,6 +192,7 @@ public class Sighting implements Serializable {
         return 31;
     }
 
+    // prettier-ignore
     @Override
     public String toString() {
         return "Sighting{" +

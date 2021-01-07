@@ -16,7 +16,7 @@ describe('Service Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule]
+        imports: [HttpClientTestingModule],
       });
       expectedResult = null;
       injector = getTestBed();
@@ -31,7 +31,7 @@ describe('Service Tests', () => {
       it('should find an element', () => {
         const returnedFromService = Object.assign(
           {
-            createdDt: currentDate.format(DATE_TIME_FORMAT)
+            createdDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
@@ -47,14 +47,14 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
-            createdDt: currentDate.format(DATE_TIME_FORMAT)
+            createdDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            createdDt: currentDate
+            createdDt: currentDate,
           },
           returnedFromService
         );
@@ -72,14 +72,14 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             order: 1,
             definition: 'BBBBBB',
-            createdDt: currentDate.format(DATE_TIME_FORMAT)
+            createdDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            createdDt: currentDate
+            createdDt: currentDate,
           },
           returnedFromService
         );
@@ -97,14 +97,14 @@ describe('Service Tests', () => {
             name: 'BBBBBB',
             order: 1,
             definition: 'BBBBBB',
-            createdDt: currentDate.format(DATE_TIME_FORMAT)
+            createdDt: currentDate.format(DATE_TIME_FORMAT),
           },
           elemDefault
         );
 
         const expected = Object.assign(
           {
-            createdDt: currentDate
+            createdDt: currentDate,
           },
           returnedFromService
         );
